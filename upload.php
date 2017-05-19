@@ -1,6 +1,5 @@
 <?php
 
-
 	if(isset($_POST['submitimage'])) {		
 		$imagefile = $_FILES['imagefile'];
 		$fileName = $_FILES['imagefile']['name'];
@@ -17,8 +16,7 @@
 		if(in_array($fileActualExt,$allowed)) {
 			if($fileError === 0) {
 				if($fileSize < 1000000) {
-					$fileNameNew=uniqid('',true).".".$fileActualExt;
-					$fileDestination='images/'.$fileNameNew;
+					$fileDestination='logo.png';
 					move_uploaded_file($fileTmpName,$fileDestination);
 					header("location:front.php");
 				} 

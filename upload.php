@@ -1,5 +1,4 @@
 <?php
-
 	if(isset($_POST['submitimage'])) {		
 		$imagefile = $_FILES['imagefile'];
 		$fileName = $_FILES['imagefile']['name'];
@@ -7,12 +6,10 @@
 		$fileSize = $_FILES['imagefile']['size'];
 		$fileError = $_FILES['imagefile']['error'];
 		$fileType = $_FILES['imagefile']['type'];
-
 		$fileExt = explode('.',$fileName);
 		$fileActualExt = strtolower(end($fileExt));
 		echo $fileActualExt;
-		$allowed = array('jpg','jpeg','png','pdf');
-		
+		$allowed = array('jpg','jpeg','png','pdf');		
 		if(in_array($fileActualExt,$allowed)) {
 			if($fileError === 0) {
 				if($fileSize < 1000000) {
@@ -21,15 +18,16 @@
 					header("location:front.php");
 				} 
 				else {
-					echo "your file is too big!";
+					echo '<span style="color:red;">your file is too big!</span>';
+					
 				}
 			}
 			else {
-				echo "There was an error uploading your file!";
+				echo '<span style="color:red">There was an error uploading your file!</span>';
 			}
 		}		
 		else {
-			echo"Error: You cannot upload this file.";
+			echo '<span style="color:red">Error: You cannot upload this file.</span>';
 		}
 	}
 	

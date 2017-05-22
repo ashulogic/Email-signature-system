@@ -1,4 +1,7 @@
+<!DOCTYPE html>
 <?php
+ /* var_dump($_FILES);
+ var_dump($_POST); */
 	if(isset($_POST['submitimage'])) {		
 		$imagefile = $_FILES['imagefile'];
 		$fileName = $_FILES['imagefile']['name'];
@@ -19,7 +22,6 @@
 				} 
 				else {
 					echo '<span style="color:red;">your file is too big!</span>';
-					
 				}
 			}
 			else {

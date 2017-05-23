@@ -1,18 +1,16 @@
-/* input[type=text] {
+ input[type=text] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     box-sizing: border-box;
-} */
-
+    border: none;
+    border-bottom: 1.60px solid green; 
+}
 p { 
     word-spacing: 5px;
 }
 
-#txtbox{
+/* #txtbox{
     font-size:10pt;
     height:30px;
     width:500px;
@@ -22,8 +20,8 @@ p {
 	border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;	
-}	
-
+} */	
+/* 
 #txtbox1{
     font-size:10pt;
     height:25px;
@@ -35,25 +33,25 @@ p {
     border-radius: 4px;
     box-sizing: border-box;
 }
-
-#txtboxs{
+ */
+/* #txtboxs{
     font-size:10pt;
     height:30px;
-    width:60px;
+    width:90px;
 	padding: 12px 20px;
 	margin:8px 0;
 	display: inline-block;
 	border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-}
+} */
 
 h6{
 	color:gray;
 }	
 
 input[type=submit]{
-    width: 300px;
+    width: 100%;
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
@@ -74,18 +72,18 @@ div{
 }
 
 #header,#footer{
-	background-color: #f1f1f1;
+	background-color:#D9D9D9;
 }
 #main-wrap{
-	background-color: #D9D9D9;
+	background-color: #D3D3D3;
 }
 	
 #sidebar{
-	background-color: #d2d2d2;
+	background-color:#D3D3D3;
 }
 
 #content-wrap{
-	background-color: #c5c5c5;
+	background-color:#D3D3D3;
 }
 	
 #main-wrap > div{
@@ -94,14 +92,14 @@ div{
 
 #header,
 #footer{
-	min-height: 40px;
+	min-height: 10px;
 }
 
 #main-wrap > div { min-height: 250px; }	
 
 #header,
 #footer{
-	min-height: 40px;
+	min-height: 10px;
 }
 
 #main-wrap{
@@ -115,18 +113,17 @@ div{
 	
 #content-wrap{
     float: right;
-    width:50%;
+    width:60%;
 }  
 		
-h1{
-	font-family: Brush Script MT;
-	font-size: 50px;
-	font-style: oblique;
+h1 {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 501px;
+	font-style: italic;
 	font-variant: normal;
-	font-weight: 100;
-	line-height: 45px;
+	font-weight: bold;
+	line-height: 50px;
 	text-align:center;
-	color:green;
 }
 /* .box {
   width: 20%;
@@ -228,5 +225,42 @@ input[type=text].inline{
 .fa:hover {
     opacity: 0.7;
 }
+.uinfo{
+width:410px;
+}
+
+/* #info-wrap {
+    overflow: hidden;
+} */
 
 
+
+/* .row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+ */
+ .col1 {
+width: 300px;
+float: left;
+}
+ 
+
+#left_col {
+   float:left;
+   width:50%;
+   height:50%;
+   background-color:#D3D3D3;
+   
+}
+#right_col {
+   float:right;
+   width:50%;
+    background-color:#D3D3D3;
+}

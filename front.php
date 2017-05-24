@@ -1,3 +1,6 @@
+<?php
+	require('upload.php');
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,44 +10,14 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<meta name="robots" content="noindex, nofollow"> 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <meta name="robots" content="noindex, nofollow"> 
+		<script src="social.js"></script> 
 	</head>
 <body>
 <div id="header">
 	<h1>Create Your Signature</h1>
 </div>
-<script>
-    function addfacebook(){ 
-		var facebook = document.getElementById("facebook");
-		var s =facebook.value;
-		document.getElementById("fbimg").style.display= "inline";
-		document.getElementById("fb").href= s;
-    }	  
-	function addtwitter(){ 
-		var twitter = document.getElementById("twitter");
-		var s =twitter.value;
-		document.getElementById("twimg").style.display= "inline";
-		document.getElementById("tw").href=s;
-    }  
-	function addgoogle(){ 
-		var google = document.getElementById("g");
-		var s =google.value;
-		document.getElementById("g").style.display= "inline";
-		document.getElementById("g").href=s;
-    }  
-	function addlink(){ 
-		var link = document.getElementById("l");
-		var s =link.value;
-		document.getElementById("l").style.display= "inline";
-		document.getElementById("l").href=s;
-    }  
-    function addinstra(){ 
-		var instra = document.getElementById("in");
-		var s =instra.value;
-		document.getElementById("in").style.display= "inline";
-		document.getElementById("in").href=s;
-    }  
-</script>
 <form action = "<?php $_PHP_SELF ?>" method = "post"  enctype="multipart/form-data">
 <div id="main-wrap">
 	<div id="sidebar">
@@ -52,7 +25,7 @@
 	<table class="table">
 	<thead>
 		<tr>
-       		<th><input type="text" name="firstname"  onkeyUp="document.getElementById('fname').outerHTML = this.value"  placeholder="First Name..">
+       		<th><input type="text" name="firstname"  onkeyUp="document.getElementById('fname').innerHTML = this.value"  placeholder="First Name..">
 			</th>
 			<th><input type="text"  name="lastname"  onkeyUp="document.getElementById('lname').innerHTML = this.value"  placeholder="Last Name.."></br>
 			</th>
@@ -81,7 +54,7 @@
         <tr>
 			<td><input type="text"  name="state" onkeyUp="document.getElementById('state').innerHTML = this.value"  placeholder=" State(Ex:Maharastra)">
 			</td>
-			<td><input type="text"  name="con"  onkeyUp="document.getElementById('con').innerHTML = this.value"  placeholder=" Country(Ex:India)"><br/>
+			<td><input type="text"  name="country"  onkeyUp="document.getElementById('country').innerHTML = this.value"  placeholder=" Country(Ex:India)"><br/>
 			</td>        
   		</tr>
         <tr>
@@ -90,7 +63,7 @@
     		</td>      
         </tr>
         <tr>
-			<td><input type="text"  name="contact"  onkeyUp="document.getElementById('con').innerHTML = this.value"  placeholder="Mobile(Ex:9685421370">
+			<td><input type="text"  name="contact"  onkeyUp="document.getElementById('contact').innerHTML = this.value"  placeholder="Mobile(Ex:9685421370">
 			</td>
 			<td><input type="text"  name="on"  onkeyUp="document.getElementById('ocontact').innerHTML = this.value" placeholder="Landline(Ex:0253 4587452">
 			</td>        
@@ -101,34 +74,26 @@
 			</td>
 		</tr>
 		<tr>	
-			<td colspan="2">
+			<td>
 			<label>Days</label>
 			</td>	
+			<td><label>Time</label></td>			
 		</tr>
 		<tr>	  
-            <td><input type="text" name="day1" onkeyUp="document.getElementById('day1').innerHTML = this.value" placeholder="Monday" >
+            <td><input type="text" name="day1" onkeyUp="document.getElementById('day1').innerHTML = this.value" placeholder="Monday to Sataurday" >
 			</td>
-			<td><input type="text" name="day2" onkeyUp="document.getElementById('day2').innerHTML = this.value" placeholder="Saturday" >
+			<td><input type="text" name="time1" onkeyUp="document.getElementById('time1').innerHTML = this.value" placeholder="9:30am to 10:30pm" >
 			</td>      
 		</tr>
 		<tr>
-			<td colspan="2">
-			<label>Time</label>
-			</td>
-		</tr>
-		<tr>	 
-            <td><input type="text" name="time1" onkeyUp="document.getElementById('time1').innerHTML = this.value" placeholder="9:30" >
-			</td>
-			<td><input type="text" name="time2" onkeyUp="document.getElementById('time2').innerHTML = this.value"  placeholder="6:30" >
-			</td>        
-		</tr>
+		</tr>				
 		<tr>
 			<td colspan="2">
 			<label>Facebook URL</label>
 			</td>
 		</tr>
 		<tr> 
-			<td colspan="2"><input  id="facebook" type="text" name="facebook" placeholder="https://www.facebook.com/profile.php?id=1000" onKeyup="addfacebook()">
+			<td colspan="2"><input id="facebook" type="text" name="facebook" placeholder="https://www.facebook.com/profile.php?id=1000" onKeyup="addfacebook()">
 			</td>
 		</tr>
 		<tr>
@@ -180,20 +145,7 @@
 	</table>			
 	</div>
 	</div>
-	<div id="content-wrap">
-    <div id="left_col">
-        <?php		
-		require('upload.php');
-		echo "<center><img src='logo.png' height=100px width=150px /></center><br/><br/>";
-		echo '<center><img src="fbimg" width="45px" style="margin-bottom:5px; border:none; display:none;" height="40px"  src="/Myemail/fb.png" alt="Facebook">&nbsp</center></br>'; 
-		echo '<center>&nbsp;&nbsp;<img id="twimg" width="45px" style="margin-bottom:2px; border:none; display:none;" height="40px" src="/Myemail/tw.png" alt="twitter">';
-		echo '&nbsp;&nbsp;<img id="g" width="45px" style="margin-bottom:2px; border:none; display:none;" height="40px" src="/Myemail/g.png" alt="google">';
-		echo '&nbsp;&nbsp;<img id="l" width="45px" style="margin-bottom:2px; border:none; display:none;" height="40px" src="/Myemail/link.png" alt="link">';
-		echo '&nbsp;&nbsp;<img id="in" width="45px" style="margin-bottom:2px; border:none; display:none;" height="40px" src="/Myemail/in.png" alt="instra"></center>';
-		?>  
-    </div>
-    <div id="right_col">
-    <?php
+	<?php
 		$firstname = "";
 		$lastname= "";
 		$post="";
@@ -203,16 +155,18 @@
 		$city = "";
 		$pin="";
 		$state="";
-		$con="";
+		$country="";
 		$email = ""; 
 		$website = "";
 		$contact = "";
 		$on="";
 		$day1="";
-		$day2="";
 		$time1="";
-		$time2="";
 		$facebook="";
+		$twitter="";
+		$google="";
+		$instra="";
+		$link="";
 		if (isset($_POST['submit'])) {
 			$firstname = $_POST['firstname'];
 			$lastname= $_POST['lastname'];
@@ -223,36 +177,76 @@
 			$city=$_POST['city'];
 			$pin=$_POST['pin'];
 			$state=$_POST['state'];
-			$con=$_POST['con'];
-			$on=$_POST['on'];
+			$country=$_POST['country'];
 			$email = $_POST['email'];
 			$website = $_POST['website'];	
-			$contact = $_POST['contact'];	 
+			$contact = $_POST['contact'];
+			$on=$_POST['on'];			
 			$day1=$_POST['day1'];
-			$day2=$_POST['day2'];
 			$time1=$_POST['time1'];
-			$time2=$_POST['time2'];
 			$facebook=$_POST['facebook'];
+			$twitter=$_POST['twitter'];
+			$google=$_POST['google'];
+			$link=$_POST['link'];
+			$instra=$_POST['instra'];
 		}
-		echo '<span id="fname"></span>'.$firstname;
-	    echo"\n\n";
-		echo  '<span id="lname"></span>'.$lastname. '</br>'; 		
-		echo '<span id="pname"></span>'.$post."</br>";
-		echo '<span id="oname"></span>'. $oragnizationname. "</br>";
-		echo '<span id="add1"></span>'.$address1. "</br>";
-		echo '<span id="add2"></span>'.$address2. "</br>";
-		echo '<td><span id="city"></span>'.$city. "</br>";
-		echo '<span id="pin"></span>'.$pin. "</br>";
-		echo '<span id="state"></span>'.$state. "</br>";
-		echo '<span id="con"></span>'.$con. "</td></tr>";
-		echo '<span id="email"></span>' .$email. "</br>";
-		echo "<span id='web'></span>".$website. "</br>";
-		echo "<span id='contact'></span>".$contact. "</br>"; 
-		echo "<span id='ocontact'></span>".$on."</br>";
-		echo '<span id="day1"></span>'.$day1."<span id='day2'></span>".$day2."</br>";
-		echo '<span id="time1"></span>'.$time1."<span id='time2'></span>".$time2;
 	?>
-    </div>
+	<div id="content-wrap">
+    <div id="left_col">
+        <div class="center">
+			<?php 
+				echo "<img src='logo.png' height=100px; width=150px;><br/><br/>";
+			?>
+			<?php
+			if($facebook !== '') {
+				echo '<a id="fb" href="'.$facebook.'">
+				<img id="fbimg" width="40px" style="margin-bottom:5px; border:none;" height="40px"  src="/Myemail/fb.png" alt="Facebook"></a></br>';
+			}
+			if($twitter !==''){
+		    echo '<a id="tw" href="'.$twitter.'"><img id="twimg" width="40px" style="margin-bottom:2px; border:none; " height="40px" src="/Myemail/tw.png" alt="twitter"></a>';
+			}
+			if($google !==''){	
+			echo '<a id="g" href="'.$google.'"><img id="gimg" width="40px" style="margin-bottom:2px; border:none; " height="40px" src="/Myemail/g.png" alt="google"></a>';
+			}
+			if($link !=='')	{
+			echo '<a id="l" href="'.$link.'"><img id="limg" width="40px" style="margin-bottom:2px; border:none; " height="40px" src="/Myemail/link.png" alt="link"></a>';
+			}
+			if($instra !==''){
+				echo '<a id="in" href= "'.$instra.'"><img id="inimg" width="40px" style="margin-bottom:2px; border:none; " height="40px" src="/Myemail/in.png" alt="instra"></a>';
+			}?>
+			<?php echo '<a id="fb" href=""><img id="fbimg" width="40px" style="margin-bottom:5px; border:none; display:none" height="40px"  src="/Myemail/fb.png" alt="Facebook"></a></br>';?>
+			<?php
+			echo '<a id="tw" href=""><img id="twimg" width="40px" style="margin-bottom:2px; border:none; display:none;" height="40px" src="/Myemail/tw.png" alt="twitter"></a>';
+			echo '<a id="g" href=""><img id="gimg" width="40px" style="margin-bottom:2px; border:none; display:none;" height="40px" src="/Myemail/g.png" alt="google"></a>';
+			echo '<a id="l" href=""><img id="limg" width="40px" style="margin-bottom:2px; border:none; display:none;" height="40px" src="/Myemail/link.png" alt="link"></a>';
+			echo '<a id="in" href= ""><img id="inimg" width="40px" style="margin-bottom:2px; border:none; display:none;" height="40px" src="/Myemail/in.png" alt="instra"></a>';
+			?>
+		</div>
+	</div>   
+    <div id="right_col">  
+		<p>
+			<span style= "color:#4B0082;">
+			<span id="fname"></span><?php echo $firstname; ?>
+			<span id="lname"></span><?php echo $lastname;  ?>
+			</span>
+		</p>
+		<h4>
+			<span id="pname"></span><?php echo $post;?></br>
+			<span id="oname"></span><?php echo  $oragnizationname;?></br>
+			<span id="add1"></span><?php echo $address1. "</br>";?>
+			<span id="add2"></span><?php echo $address2. "</br>";?>
+			<span id="city"></span><?php echo $city. "</br>"; ?>
+			<span id="pin"></span><?php echo $pin. "</br>";?>
+			<span id="state"></span><?php echo $state. "</br>";?>
+			<span id="country"></span><?php echo $country. "</br>";?>
+			<span id="email"></span><?php echo $email. "</br>";?>
+			<span id='web'></span><?php echo $website. "</br>";?>
+			<span id='contact'></span><?php echo $contact. "</br>";?>
+			<span id='ocontact'></span><?php echo $on."</br></br>";?>
+			<span id="day1"></span><?php echo $day1;echo "</br>";?>
+			<span id="time1"></span><?php echo $time1.'';?>
+		</h4>	
+	</div>
 </div>	
 </form>
 </body>
